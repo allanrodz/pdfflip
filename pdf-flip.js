@@ -1,4 +1,20 @@
-﻿var PdfFlip = {
+﻿function adjustPDFViewerScale() {
+    if (window.innerWidth < 768) { // Adjust this breakpoint to your needs
+      // Set the viewer to page-width scale mode or any other adjustments
+      PDFViewerApplication.pdfViewer.currentScaleValue = 'page-width';
+    } else {
+      // Reset to default scale or another appropriate scale for larger screens
+      PDFViewerApplication.pdfViewer.currentScaleValue = 'auto';
+    }
+  }
+  
+  // Adjust on initial load
+  adjustPDFViewerScale();
+  
+  // Adjust on window resize
+  window.addEventListener('resize', adjustPDFViewerScale);
+  
+var PdfFlip = {
     magazineMode: true,
     oldScale: 1,
     currentPage: 1,
